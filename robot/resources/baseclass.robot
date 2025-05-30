@@ -16,7 +16,7 @@ Setup Browser
     # if you need to use multiple libraries containing keywords with duplicate names
    # Set Library Search Order    QForce                      QWeb
     Open Browser                about:blank                 ${BROWSER}
-    Set Selenium Speed          DefaultTimeout              30s                         #sometimes salesforce is slow
+ #   Set Selenium Speed          30s                         #sometimes salesforce is slow
 
 End suite
     Close All Browsers
@@ -104,10 +104,5 @@ Login To Salesforce
     Sleep    2s
     Close Browser
 
-LoginToSalesforce
-    [Arguments]    ${username}    ${password}
-    Wait Until Element Is Visible    id=username    ${initial_sleep_time}
-    Input Text    id=username    ${username}
-    Input Password    id=password    ${password}
-    Click Button    id=Login
+
 

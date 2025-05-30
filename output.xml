@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-05-30T18:40:06.705651" rpa="false" schemaversion="5">
+<suite id="s1" name="LeadwithData1" source="C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot">
+<kw name="Setup Browser" owner="baseclass" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-30T18:40:07.190790" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-30T18:40:07.190594" elapsed="1.341597"/>
+</kw>
+<status status="PASS" start="2025-05-30T18:40:07.190074" elapsed="1.342404"/>
+</kw>
+<test id="s1-t1" name="Lead Entry With Data" line="26">
+<status status="FAIL" start="2025-05-30T18:40:08.532643" elapsed="0.001275">Test cannot be empty.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-30T18:40:08.535239" elapsed="2.180748"/>
+</kw>
+<status status="FAIL" start="2025-05-30T18:40:06.707154" elapsed="4.009193"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="LeadwithData1" id="s1" pass="0" fail="1" skip="0">LeadwithData1</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-05-30T18:40:07.165325" level="ERROR">Error in file 'C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot' on line 22: Setting variable '${Company}' failed: Recursive variable definition.</msg>
+<msg time="2025-05-30T18:40:07.166424" level="ERROR">Error in file 'C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot' on line 19: Setting variable '${first Name}' failed: Recursive variable definition.</msg>
+<msg time="2025-05-30T18:40:07.167296" level="ERROR">Error in file 'C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot' on line 20: Setting variable '${Last Name}' failed: Recursive variable definition.</msg>
+<msg time="2025-05-30T18:40:07.168010" level="ERROR">Error in file 'C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot' on line 21: Setting variable '${Phone}' failed: Recursive variable definition.</msg>
+<msg time="2025-05-30T18:40:07.168916" level="ERROR">Error in file 'C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot' on line 23: Setting variable '${Website}' failed: Recursive variable definition.</msg>
+<msg time="2025-05-30T18:40:07.183942" level="ERROR">[ DataDriver ] Error in robot file:
+  File "C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot", line 0</msg>
+<msg time="2025-05-30T18:40:07.184357" level="ERROR">In source file:
+  File "C:/Users/satish.r/IdeaProjects/srrobotframework/robot/testdata/leadP22.csv", line 0</msg>
+<msg time="2025-05-30T18:40:07.189196" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: ValueError: Unassigned requiered argument detected: ${First Name}.</msg>
+</errors>
+</robot>
