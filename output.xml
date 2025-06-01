@@ -1,45 +1,317 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-05-30T18:40:06.705651" rpa="false" schemaversion="5">
-<suite id="s1" name="LeadwithData1" source="C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot">
-<kw name="Setup Browser" owner="baseclass" type="SETUP">
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-05-30T19:41:22.725077" rpa="false" schemaversion="5">
+<suite id="s1" name="DataDriven xls" source="C:\Users\satish.r\IdeaProjects\srrobotframework\robot\Login Tests\DataDriven_xls.robot">
+<kw name="Open my Browser" owner="login_resources" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-05-30T18:40:07.190790" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
-<arg>about:blank</arg>
-<arg>${BROWSER}</arg>
+<msg time="2025-05-30T19:41:23.825105" level="INFO">Opening browser 'chrome' to base url 'http://login.salesforce.com'.</msg>
+<arg>${LOGIN URL}</arg>
+<arg>browser=${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-05-30T18:40:07.190594" elapsed="1.341597"/>
+<status status="PASS" start="2025-05-30T19:41:23.824910" elapsed="2.492433"/>
 </kw>
-<status status="PASS" start="2025-05-30T18:40:07.190074" elapsed="1.342404"/>
+<kw name="Set Window Position" owner="SeleniumLibrary">
+<arg>0</arg>
+<arg>0</arg>
+<doc>Sets window position using ``x`` and ``y`` coordinates.</doc>
+<status status="PASS" start="2025-05-30T19:41:26.317704" elapsed="0.027012"/>
 </kw>
-<test id="s1-t1" name="Lead Entry With Data" line="26">
-<status status="FAIL" start="2025-05-30T18:40:08.532643" elapsed="0.001275">Test cannot be empty.</status>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>960</arg>
+<arg>1000</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-05-30T19:41:26.345092" elapsed="0.396702"/>
+</kw>
+<status status="PASS" start="2025-05-30T19:41:23.824454" elapsed="2.917453"/>
+</kw>
+<test id="s1-t1" name="Login To Salesforce 'satish.r177@agentforce.com' and 'Agentforce@2025'" line="12">
+<kw name="Open Login Page" owner="login_resources" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:26.743557" level="INFO">Opening url 'http://login.salesforce.com'</msg>
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-30T19:41:26.743064" elapsed="0.207181"/>
+</kw>
+<status status="PASS" start="2025-05-30T19:41:26.742858" elapsed="0.207484"/>
+</kw>
+<kw name="Login To Salesforce">
+<kw name="Input username" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:26.951276" level="INFO">Typing text 'satish.r177@agentforce.com' into text field 'username'.</msg>
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T19:41:26.951029" elapsed="0.293663"/>
+</kw>
+<arg>${username}</arg>
+<status status="PASS" start="2025-05-30T19:41:26.950864" elapsed="0.294064"/>
+</kw>
+<kw name="Input pwd" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:27.246249" level="INFO">Typing text 'Agentforce@2025' into text field 'password'.</msg>
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T19:41:27.245888" elapsed="0.139802"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-05-30T19:41:27.245348" elapsed="0.140432"/>
+</kw>
+<kw name="click login button" owner="login_resources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:27.386254" level="INFO">Clicking button 'id=login'.</msg>
+<msg time="2025-05-30T19:41:27.537175" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-51.png"&gt;&lt;img src="selenium-screenshot-51.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-30T19:41:27.537390" level="FAIL">Button with locator 'id=login' not found.</msg>
+<arg>id=login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-05-30T19:41:27.386103" elapsed="0.160018">Button with locator 'id=login' not found.</status>
+</kw>
+<status status="FAIL" start="2025-05-30T19:41:27.385905" elapsed="0.160433">Button with locator 'id=login' not found.</status>
+</kw>
+<kw name="Error page should be visible" owner="login_resources">
+<status status="NOT RUN" start="2025-05-30T19:41:27.546538" elapsed="0.000043"/>
+</kw>
+<arg>username=satish.r177@agentforce.com</arg>
+<arg>password=Agentforce@2025</arg>
+<tag>flat</tag>
+<status status="FAIL" start="2025-05-30T19:41:26.950643" elapsed="0.596040">Button with locator 'id=login' not found.</status>
+</kw>
+<status status="FAIL" start="2025-05-30T19:41:26.741986" elapsed="0.805078">Button with locator 'id=login' not found.</status>
 </test>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-05-30T18:40:08.535239" elapsed="2.180748"/>
+<test id="s1-t2" name="Login To Salesforce 'satish.r177@agentforce.com' and 'Agentforce@2026'" line="12">
+<kw name="Open Login Page" owner="login_resources" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:27.549317" level="INFO">Opening url 'http://login.salesforce.com'</msg>
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-30T19:41:27.549159" elapsed="0.171159"/>
 </kw>
-<status status="FAIL" start="2025-05-30T18:40:06.707154" elapsed="4.009193"/>
+<status status="PASS" start="2025-05-30T19:41:27.548876" elapsed="0.171655"/>
+</kw>
+<kw name="Login To Salesforce">
+<kw name="Input username" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:27.722255" level="INFO">Typing text 'satish.r177@agentforce.com' into text field 'username'.</msg>
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T19:41:27.721997" elapsed="0.212703"/>
+</kw>
+<arg>${username}</arg>
+<status status="PASS" start="2025-05-30T19:41:27.721566" elapsed="0.213280"/>
+</kw>
+<kw name="Input pwd" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:27.935942" level="INFO">Typing text 'Agentforce@2026' into text field 'password'.</msg>
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T19:41:27.935687" elapsed="0.157054"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-05-30T19:41:27.935073" elapsed="0.157901"/>
+</kw>
+<kw name="click login button" owner="login_resources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:28.094484" level="INFO">Clicking button 'id=login'.</msg>
+<msg time="2025-05-30T19:41:28.251045" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-52.png"&gt;&lt;img src="selenium-screenshot-52.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-30T19:41:28.251299" level="FAIL">Button with locator 'id=login' not found.</msg>
+<arg>id=login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-05-30T19:41:28.094154" elapsed="0.159166">Button with locator 'id=login' not found.</status>
+</kw>
+<status status="FAIL" start="2025-05-30T19:41:28.093287" elapsed="0.160377">Button with locator 'id=login' not found.</status>
+</kw>
+<kw name="Error page should be visible" owner="login_resources">
+<status status="NOT RUN" start="2025-05-30T19:41:28.253996" elapsed="0.000061"/>
+</kw>
+<arg>username=satish.r177@agentforce.com</arg>
+<arg>password=Agentforce@2026</arg>
+<tag>flat</tag>
+<status status="FAIL" start="2025-05-30T19:41:27.720983" elapsed="0.533151">Button with locator 'id=login' not found.</status>
+</kw>
+<status status="FAIL" start="2025-05-30T19:41:27.547817" elapsed="0.707627">Button with locator 'id=login' not found.</status>
+</test>
+<test id="s1-t3" name="Login To Salesforce 'satish.r177@agentforce.com' and 'Agentforce@2027'" line="12">
+<kw name="Open Login Page" owner="login_resources" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:28.258332" level="INFO">Opening url 'http://login.salesforce.com'</msg>
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-30T19:41:28.258173" elapsed="0.176462"/>
+</kw>
+<status status="PASS" start="2025-05-30T19:41:28.257875" elapsed="0.176940"/>
+</kw>
+<kw name="Login To Salesforce">
+<kw name="Input username" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:28.436398" level="INFO">Typing text 'satish.r177@agentforce.com' into text field 'username'.</msg>
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T19:41:28.436196" elapsed="0.185236"/>
+</kw>
+<arg>${username}</arg>
+<status status="PASS" start="2025-05-30T19:41:28.435634" elapsed="0.185943"/>
+</kw>
+<kw name="Input pwd" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:28.622985" level="INFO">Typing text 'Agentforce@2027' into text field 'password'.</msg>
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T19:41:28.622625" elapsed="0.107690"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-05-30T19:41:28.621902" elapsed="0.108648"/>
+</kw>
+<kw name="click login button" owner="login_resources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:28.731890" level="INFO">Clicking button 'id=login'.</msg>
+<msg time="2025-05-30T19:41:28.844873" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-53.png"&gt;&lt;img src="selenium-screenshot-53.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-30T19:41:28.844989" level="FAIL">Button with locator 'id=login' not found.</msg>
+<arg>id=login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-05-30T19:41:28.731578" elapsed="0.114148">Button with locator 'id=login' not found.</status>
+</kw>
+<status status="FAIL" start="2025-05-30T19:41:28.730834" elapsed="0.114995">Button with locator 'id=login' not found.</status>
+</kw>
+<kw name="Error page should be visible" owner="login_resources">
+<status status="NOT RUN" start="2025-05-30T19:41:28.845944" elapsed="0.000023"/>
+</kw>
+<arg>username=satish.r177@agentforce.com</arg>
+<arg>password=Agentforce@2027</arg>
+<tag>flat</tag>
+<status status="FAIL" start="2025-05-30T19:41:28.435288" elapsed="0.410725">Button with locator 'id=login' not found.</status>
+</kw>
+<status status="FAIL" start="2025-05-30T19:41:28.256443" elapsed="0.589911">Button with locator 'id=login' not found.</status>
+</test>
+<test id="s1-t4" name="Login To Salesforce 'satish.r177@agentforce.com' and 'Agentforce@2028'" line="12">
+<kw name="Open Login Page" owner="login_resources" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:28.848167" level="INFO">Opening url 'http://login.salesforce.com'</msg>
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-30T19:41:28.848024" elapsed="0.188345"/>
+</kw>
+<status status="PASS" start="2025-05-30T19:41:28.847761" elapsed="0.188970"/>
+</kw>
+<kw name="Login To Salesforce">
+<kw name="Input username" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:29.039047" level="INFO">Typing text 'satish.r177@agentforce.com' into text field 'username'.</msg>
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T19:41:29.038686" elapsed="0.206980"/>
+</kw>
+<arg>${username}</arg>
+<status status="PASS" start="2025-05-30T19:41:29.038191" elapsed="0.207669"/>
+</kw>
+<kw name="Input pwd" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:29.247078" level="INFO">Typing text 'Agentforce@2028' into text field 'password'.</msg>
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T19:41:29.246687" elapsed="0.094024"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-05-30T19:41:29.246149" elapsed="0.094788"/>
+</kw>
+<kw name="click login button" owner="login_resources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:29.342049" level="INFO">Clicking button 'id=login'.</msg>
+<msg time="2025-05-30T19:41:29.477581" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-54.png"&gt;&lt;img src="selenium-screenshot-54.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-30T19:41:29.477771" level="FAIL">Button with locator 'id=login' not found.</msg>
+<arg>id=login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-05-30T19:41:29.341666" elapsed="0.137618">Button with locator 'id=login' not found.</status>
+</kw>
+<status status="FAIL" start="2025-05-30T19:41:29.341223" elapsed="0.138244">Button with locator 'id=login' not found.</status>
+</kw>
+<kw name="Error page should be visible" owner="login_resources">
+<status status="NOT RUN" start="2025-05-30T19:41:29.479673" elapsed="0.000048"/>
+</kw>
+<arg>username=satish.r177@agentforce.com</arg>
+<arg>password=Agentforce@2028</arg>
+<tag>flat</tag>
+<status status="FAIL" start="2025-05-30T19:41:29.037447" elapsed="0.442373">Button with locator 'id=login' not found.</status>
+</kw>
+<status status="FAIL" start="2025-05-30T19:41:28.846821" elapsed="0.633445">Button with locator 'id=login' not found.</status>
+</test>
+<test id="s1-t5" name="Login To Salesforce 'satish.r177@agentforce.com' and 'Agentforce@2029'" line="12">
+<kw name="Open Login Page" owner="login_resources" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:29.482599" level="INFO">Opening url 'http://login.salesforce.com'</msg>
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-30T19:41:29.482462" elapsed="0.183010"/>
+</kw>
+<status status="PASS" start="2025-05-30T19:41:29.482191" elapsed="0.183562"/>
+</kw>
+<kw name="Login To Salesforce">
+<kw name="Input username" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:29.667291" level="INFO">Typing text 'satish.r177@agentforce.com' into text field 'username'.</msg>
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T19:41:29.667034" elapsed="0.228599"/>
+</kw>
+<arg>${username}</arg>
+<status status="PASS" start="2025-05-30T19:41:29.666674" elapsed="0.229101"/>
+</kw>
+<kw name="Input pwd" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:29.897000" level="INFO">Typing text 'Agentforce@2029' into text field 'password'.</msg>
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T19:41:29.896389" elapsed="0.183025"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-05-30T19:41:29.895949" elapsed="0.183623"/>
+</kw>
+<kw name="click login button" owner="login_resources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-30T19:41:30.080419" level="INFO">Clicking button 'id=login'.</msg>
+<msg time="2025-05-30T19:41:30.209185" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-55.png"&gt;&lt;img src="selenium-screenshot-55.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-30T19:41:30.209348" level="FAIL">Button with locator 'id=login' not found.</msg>
+<arg>id=login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-05-30T19:41:30.080155" elapsed="0.130540">Button with locator 'id=login' not found.</status>
+</kw>
+<status status="FAIL" start="2025-05-30T19:41:30.079806" elapsed="0.131049">Button with locator 'id=login' not found.</status>
+</kw>
+<kw name="Error page should be visible" owner="login_resources">
+<status status="NOT RUN" start="2025-05-30T19:41:30.211037" elapsed="0.000145"/>
+</kw>
+<arg>username=satish.r177@agentforce.com</arg>
+<arg>password=Agentforce@2029</arg>
+<tag>flat</tag>
+<status status="FAIL" start="2025-05-30T19:41:29.666241" elapsed="0.545040">Button with locator 'id=login' not found.</status>
+</kw>
+<status status="FAIL" start="2025-05-30T19:41:29.481230" elapsed="0.730384">Button with locator 'id=login' not found.</status>
+</test>
+<kw name="Close Browsers" owner="login_resources" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-05-30T19:41:30.213656" elapsed="2.199170"/>
+</kw>
+<status status="PASS" start="2025-05-30T19:41:30.212824" elapsed="2.200328"/>
+</kw>
+<status status="FAIL" start="2025-05-30T19:41:22.726646" elapsed="9.686637"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="0" fail="5" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="LeadwithData1" id="s1" pass="0" fail="1" skip="0">LeadwithData1</stat>
+<stat name="DataDriven xls" id="s1" pass="0" fail="5" skip="0">DataDriven xls</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-05-30T18:40:07.165325" level="ERROR">Error in file 'C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot' on line 22: Setting variable '${Company}' failed: Recursive variable definition.</msg>
-<msg time="2025-05-30T18:40:07.166424" level="ERROR">Error in file 'C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot' on line 19: Setting variable '${first Name}' failed: Recursive variable definition.</msg>
-<msg time="2025-05-30T18:40:07.167296" level="ERROR">Error in file 'C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot' on line 20: Setting variable '${Last Name}' failed: Recursive variable definition.</msg>
-<msg time="2025-05-30T18:40:07.168010" level="ERROR">Error in file 'C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot' on line 21: Setting variable '${Phone}' failed: Recursive variable definition.</msg>
-<msg time="2025-05-30T18:40:07.168916" level="ERROR">Error in file 'C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot' on line 23: Setting variable '${Website}' failed: Recursive variable definition.</msg>
-<msg time="2025-05-30T18:40:07.183942" level="ERROR">[ DataDriver ] Error in robot file:
-  File "C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\LeadwithData1.robot", line 0</msg>
-<msg time="2025-05-30T18:40:07.184357" level="ERROR">In source file:
-  File "C:/Users/satish.r/IdeaProjects/srrobotframework/robot/testdata/leadP22.csv", line 0</msg>
-<msg time="2025-05-30T18:40:07.189196" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: ValueError: Unassigned requiered argument detected: ${First Name}.</msg>
 </errors>
 </robot>
