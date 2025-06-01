@@ -1,0 +1,79 @@
+{"level":30,"time":"2025-06-01T12:37:13.768Z","pid":16108,"hostname":"satish-laptop","msg":"Listening on 127.0.0.1:50320"}
+(node:16108) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{"level":30,"time":"2025-06-01T12:37:14.051Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2025-06-01T12:37:14.772Z","pid":16108,"hostname":"satish-laptop","msg":"Adding browser to stack: chromium, version: 136.0.7103.25"}
+{"level":30,"time":"2025-06-01T12:37:14.773Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method newBrowser"}
+{"level":30,"time":"2025-06-01T12:37:14.772Z","pid":16108,"hostname":"satish-laptop","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2025-06-01T12:37:14.782Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:14.783Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:14.789Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method newPage"}
+{"level":30,"time":"2025-06-01T12:37:14.790Z","pid":16108,"hostname":"satish-laptop","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-06-01T12:37:14.811Z","pid":16108,"hostname":"satish-laptop","msg":"Changed active context"}
+{"level":30,"time":"2025-06-01T12:37:15.041Z","pid":16108,"hostname":"satish-laptop","msg":"Video path: undefined"}
+{"level":30,"time":"2025-06-01T12:37:15.041Z","pid":16108,"hostname":"satish-laptop","msg":"Changed active page"}
+{"level":30,"time":"2025-06-01T12:37:16.003Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method newPage"}
+{"level":30,"time":"2025-06-01T12:37:16.013Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method getText"}
+{"level":30,"time":"2025-06-01T12:37:16.013Z","pid":16108,"hostname":"satish-laptop","msg":"Strict mode is enabled, find Locator with h1 in page."}
+{"level":30,"time":"2025-06-01T12:37:16.173Z","pid":16108,"hostname":"satish-laptop","msg":"Retrieved text for element h1 containing Playwright enables reliable end-to-end testing for modern web apps."}
+{"level":30,"time":"2025-06-01T12:37:16.173Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method getText"}
+{"level":30,"time":"2025-06-01T12:37:16.181Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:16.183Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:16.186Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:16.189Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:16.194Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:16.196Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:16.200Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:16.203Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:16.207Z","pid":16108,"hostname":"satish-laptop","msg":"Changed active context"}
+{"level":30,"time":"2025-06-01T12:37:16.207Z","pid":16108,"hostname":"satish-laptop","msg":"Changing current active page: page=0087b449-d441-4cc1-b233-ce3c79517790"}
+{"level":30,"time":"2025-06-01T12:37:16.207Z","pid":16108,"hostname":"satish-laptop","msg":"Changed active page"}
+{"level":30,"time":"2025-06-01T12:37:16.211Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method closeContext"}
+{"level":30,"time":"2025-06-01T12:37:16.240Z","pid":16108,"hostname":"satish-laptop","msg":"Removed page=7d33885e-7d7e-4a7c-995e-957501156248 from context=bb64aea4-95db-41c9-8629-a6b836cee5b5 page stack"}
+{"level":30,"time":"2025-06-01T12:37:16.292Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method closeContext"}
+{"level":30,"time":"2025-06-01T12:37:16.301Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:16.301Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:16.314Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method newContext"}
+{"level":30,"time":"2025-06-01T12:37:16.314Z","pid":16108,"hostname":"satish-laptop","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"viewport\":{\"height\":720,\"width\":1280}}"}
+{"level":30,"time":"2025-06-01T12:37:16.314Z","pid":16108,"hostname":"satish-laptop","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-06-01T12:37:16.314Z","pid":16108,"hostname":"satish-laptop","msg":"Trace file: "}
+{"level":30,"time":"2025-06-01T12:37:16.328Z","pid":16108,"hostname":"satish-laptop","msg":"Changed active context"}
+{"level":30,"time":"2025-06-01T12:37:16.328Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method newContext"}
+{"level":30,"time":"2025-06-01T12:37:16.338Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method newPage"}
+{"level":30,"time":"2025-06-01T12:37:16.338Z","pid":16108,"hostname":"satish-laptop","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-06-01T12:37:16.616Z","pid":16108,"hostname":"satish-laptop","msg":"Video path: undefined"}
+{"level":30,"time":"2025-06-01T12:37:16.617Z","pid":16108,"hostname":"satish-laptop","msg":"Changed active page"}
+{"level":30,"time":"2025-06-01T12:37:17.563Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method newPage"}
+{"level":30,"time":"2025-06-01T12:37:17.627Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:17.630Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:17.633Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:17.634Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:17.636Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:17.637Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:17.641Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:17.644Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:17.646Z","pid":16108,"hostname":"satish-laptop","msg":"Changed active context"}
+{"level":30,"time":"2025-06-01T12:37:17.646Z","pid":16108,"hostname":"satish-laptop","msg":"Changing current active page: page=12479f1b-8184-4bff-ad07-b0519f2bf6de"}
+{"level":30,"time":"2025-06-01T12:37:17.646Z","pid":16108,"hostname":"satish-laptop","msg":"Changed active page"}
+{"level":30,"time":"2025-06-01T12:37:17.649Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method closeContext"}
+{"level":30,"time":"2025-06-01T12:37:17.663Z","pid":16108,"hostname":"satish-laptop","msg":"Removed page=3709c0d1-1a07-498a-a330-e2ce99128b8e from context=65a4f807-161e-45d7-9308-280d3d6b8661 page stack"}
+{"level":30,"time":"2025-06-01T12:37:17.758Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method closeContext"}
+{"level":30,"time":"2025-06-01T12:37:17.770Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2025-06-01T12:37:18.084Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method closeBrowser"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Users\satish.r\IdeaProjects\srrobotframework\.venv\Lib\site-packages\Browser\wrapper\index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (C:\Users\satish.r\IdeaProjects\srrobotframework\.venv\Lib\site-packages\Browser\wrapper\index.js:13122:59)
+    at PlaywrightServer.setTimeout (C:\Users\satish.r\IdeaProjects\srrobotframework\.venv\Lib\site-packages\Browser\wrapper\index.js:13370:57)
+    at Object.onReceiveHalfClose (C:\Users\satish.r\IdeaProjects\srrobotframework\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Users\satish.r\IdeaProjects\srrobotframework\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Users\satish.r\IdeaProjects\srrobotframework\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Users\satish.r\IdeaProjects\srrobotframework\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-06-01T12:37:18.145Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:18.145Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-01T12:37:18.242Z","pid":16108,"hostname":"satish-laptop","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2025-06-01T12:37:18.242Z","pid":16108,"hostname":"satish-laptop","msg":"End of node method closeAllBrowsers"}
