@@ -10,6 +10,7 @@ Test Template            Example Test
 *** Variables ***
 ${CSV File}              leadP22.csv
 
+
 *** Test Cases ***
 Example Test
     ${data}=    Read Excel Row    ${CSV File}
@@ -22,14 +23,14 @@ Example Test
 *** Keywords ***
 Example Test
     [Arguments]    ${Last_Name}    ${Company}    ${Lead_Status}
-    [tags]    Lead
+    [Tags]   Lead
     Open Browser    https://www.salesforce.com    chrome
-    Click Text    Leads
-    Verify Text    Recently Viewed    timeout=120s
-    Click Text    New
-    Verify Text    Lead Information
-    Type Text    Last Name    ${Last_Name}
-    Type Text    Company    ${Company}
-    Type Text    Lead Status    ${Lead_Status}
-    Click Text    Save    partial_match=False
+    Click Element        Leads
+    Page Should Contain        Recently Viewed    timeout=120s
+    Click Element    New
+    Page Should Contain    Lead Information
+    Input Text        Last Name    ${Last_Name}
+    Input Text    Company    ${Company}
+    Input Text    Lead Status    ${Lead_Status}
+    Click Element        Save    partial_match=False
     Sleep    1

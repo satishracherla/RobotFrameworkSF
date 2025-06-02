@@ -17,6 +17,6 @@ Invalid login
     [Tags]    flat
     [Arguments]    ${username}    ${password}
     Input username    ${username}
-    Input pwd    ${password}
+    Input Password    ${password}
     click login button
     Error page should be visible

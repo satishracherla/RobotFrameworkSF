@@ -1,6 +1,7 @@
 *** Settings ***
 Library    QWeb     # Import library
 Library    SeleniumLibrary
+Library
 
 *** Variables ***
     ${URL}    https://qentinelqi.github.io/shop
