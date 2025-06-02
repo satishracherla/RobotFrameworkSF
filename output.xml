@@ -1,82 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-02T19:38:53.727599" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-02T12:23:43.205512" rpa="false" schemaversion="5">
 <suite id="s1" name="Tags" source="C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests1\Tags.robot">
 <test id="s1-t1" name="Test Case 1" line="8">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-06-02T19:38:53.800053" level="INFO">${first} = First variable value</msg>
-<var>${first}</var>
-<arg>First variable value</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-06-02T19:38:53.799897" elapsed="0.000182"/>
-</kw>
 <kw name="Log To Console" owner="BuiltIn">
-<arg>This is test case 1 ${first}</arg>
+<arg>This is test case 1</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-02T19:38:53.800271" elapsed="0.000268"/>
+<status status="PASS" start="2025-06-02T12:23:43.261014" elapsed="0.001725"/>
 </kw>
 <tag>Smoke</tag>
-<status status="PASS" start="2025-06-02T19:38:53.799210" elapsed="0.001717"/>
+<status status="PASS" start="2025-06-02T12:23:43.259292" elapsed="0.003846"/>
 </test>
-<test id="s1-t2" name="Test Case 2" line="13">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-06-02T19:38:53.801460" level="INFO">${second} = Second variable value</msg>
-<var>${second}</var>
-<arg>Second variable value</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-06-02T19:38:53.801364" elapsed="0.000114"/>
-</kw>
+<test id="s1-t2" name="Test Case 2" line="12">
 <kw name="Log To Console" owner="BuiltIn">
-<arg>This is test case 2 ${second}</arg>
+<arg>This is test case 2</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-02T19:38:53.801883" elapsed="0.000154"/>
+<status status="PASS" start="2025-06-02T12:23:43.265310" elapsed="0.000788"/>
 </kw>
 <tag>Regression</tag>
-<status status="PASS" start="2025-06-02T19:38:53.801173" elapsed="0.000945"/>
+<status status="PASS" start="2025-06-02T12:23:43.264520" elapsed="0.001967"/>
 </test>
-<test id="s1-t3" name="Test Case 3" line="18">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-06-02T19:38:53.802500" level="INFO">${third} = Third variable value</msg>
-<var>${third}</var>
-<arg>Third variable value</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-06-02T19:38:53.802425" elapsed="0.000091"/>
-</kw>
+<test id="s1-t3" name="Test Case 3" line="16">
 <kw name="Log To Console" owner="BuiltIn">
-<arg>This is test case 3 ${third}</arg>
+<arg>This is test case 3</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-02T19:38:53.802601" elapsed="0.000113"/>
+<status status="PASS" start="2025-06-02T12:23:43.268548" elapsed="0.001752"/>
 </kw>
 <tag>Regression</tag>
-<status status="PASS" start="2025-06-02T19:38:53.802271" elapsed="0.000517"/>
+<status status="PASS" start="2025-06-02T12:23:43.267965" elapsed="0.002683"/>
 </test>
-<test id="s1-t4" name="Test Case 4" line="23">
+<test id="s1-t4" name="Test Case 4" line="20">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>This is test case 4</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-02T19:38:53.803879" elapsed="0.000129"/>
+<status status="PASS" start="2025-06-02T12:23:43.274366" elapsed="0.000287"/>
 </kw>
 <tag>Smoke</tag>
-<status status="PASS" start="2025-06-02T19:38:53.802926" elapsed="0.001497"/>
+<status status="PASS" start="2025-06-02T12:23:43.273915" elapsed="0.001851"/>
 </test>
-<test id="s1-t5" name="Test Case 5" line="27">
+<test id="s1-t5" name="Test Case 5" line="24">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>This is test case 5</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-02T19:38:53.806279" elapsed="0.000250"/>
+<status status="PASS" start="2025-06-02T12:23:43.277254" elapsed="0.000504"/>
 </kw>
 <tag>Sanity</tag>
-<status status="PASS" start="2025-06-02T19:38:53.805943" elapsed="0.000724"/>
+<status status="PASS" start="2025-06-02T12:23:43.276699" elapsed="0.001543"/>
 </test>
-<test id="s1-t6" name="Test Case 6" line="31">
+<test id="s1-t6" name="Test Case 6" line="28">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>This is test case 6</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-02T19:38:53.807248" elapsed="0.000108"/>
+<status status="PASS" start="2025-06-02T12:23:43.280208" elapsed="0.000450"/>
 </kw>
-<status status="PASS" start="2025-06-02T19:38:53.806900" elapsed="0.000539"/>
+<status status="PASS" start="2025-06-02T12:23:43.279527" elapsed="0.001550"/>
 </test>
 <doc>Tags in Robot Framework</doc>
-<status status="PASS" start="2025-06-02T19:38:53.729710" elapsed="0.078293"/>
+<status status="PASS" start="2025-06-02T12:23:43.208125" elapsed="0.074693"/>
 </suite>
 <statistics>
 <total>
@@ -92,6 +71,5 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2025-06-02T19:38:53.729856" level="ERROR">Error in file 'C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests1\Tags.robot' on line 5: Setting variable '[Arguments]' failed: Invalid variable name '[Arguments]'.</msg>
 </errors>
 </robot>
