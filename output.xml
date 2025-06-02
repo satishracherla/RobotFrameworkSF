@@ -1,118 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-01T18:07:11.729080" rpa="false" schemaversion="5">
-<suite id="s1" name="Sampleplaywrighttest" source="C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests\sampleplaywrighttest.robot">
-<kw name="New Browser" owner="Browser" type="SETUP">
-<msg time="2025-06-01T18:07:12.213632" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\satish.r\\IdeaProjects\\srrobotframework\\browser\\traces\\temp\\572fed02-6904-41df-9a58-ea1d0bf11667"}</msg>
-<msg time="2025-06-01T18:07:12.306280" level="INFO">Starting Browser process C:\Users\satish.r\IdeaProjects\srrobotframework\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:50320</msg>
-<msg time="2025-06-01T18:07:14.785421" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\satish.r\\IdeaProjects\\srrobotframework\\browser\\traces\\temp\\572fed02-6904-41df-9a58-ea1d0bf11667"}</msg>
-<arg>chromium</arg>
-<arg>headless=False</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2025-06-01T18:07:12.210816" elapsed="2.574975"/>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-02T12:23:43.205512" rpa="false" schemaversion="5">
+<suite id="s1" name="Tags" source="C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests1\Tags.robot">
+<test id="s1-t1" name="Test Case 1" line="8">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>This is test case 1</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-02T12:23:43.261014" elapsed="0.001725"/>
 </kw>
-<test id="s1-t1" name="Example Test" line="8">
-<kw name="New Page" owner="Browser">
-<msg time="2025-06-01T18:07:16.015215" level="INFO">Successfully initialized new page object and opened url: https://playwright.dev</msg>
-<msg time="2025-06-01T18:07:16.015377" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<arg>https://playwright.dev</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Open a new Page.</doc>
-<status status="PASS" start="2025-06-01T18:07:14.795532" elapsed="1.220197"/>
-</kw>
-<kw name="Get Text" owner="Browser">
-<msg time="2025-06-01T18:07:16.185169" level="INFO">Text: 'Playwright enables reliable end-to-end testing for modern web apps.'</msg>
-<arg>h1</arg>
-<arg>contains</arg>
-<arg>Playwright</arg>
-<tag>Assertion</tag>
-<tag>Getter</tag>
-<tag>PageContent</tag>
-<doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2025-06-01T18:07:16.016495" elapsed="0.168806"/>
-</kw>
-<msg time="2025-06-01T18:07:16.208722" level="INFO">Switching context to context=bb64aea4-95db-41c9-8629-a6b836cee5b5 in CURRENT</msg>
-<msg time="2025-06-01T18:07:16.220836" level="INFO">Successfully changed active context: context=bb64aea4-95db-41c9-8629-a6b836cee5b5</msg>
-<msg time="2025-06-01T18:07:16.303881" level="INFO">Successfully closed Context</msg>
-<status status="PASS" start="2025-06-01T18:07:14.786415" elapsed="1.399403"/>
+<tag>Smoke</tag>
+<status status="PASS" start="2025-06-02T12:23:43.259292" elapsed="0.003846"/>
 </test>
-<test id="s1-t2" name="Open Google And Check Title" line="12">
-<kw name="New Context" owner="Browser">
-<msg time="2025-06-01T18:07:16.317898" level="INFO">{
-  "acceptDownloads": true,
-  "bypassCSP": false,
-  "forcedColors": "none",
-  "ignoreHTTPSErrors": false,
-  "javaScriptEnabled": true,
-  "offline": false,
-  "reducedMotion": "no-preference",
-  "serviceWorkers": "allow",
-  "viewport": {
-    "height": 720,
-    "width": 1280
-  }
-}</msg>
-<msg time="2025-06-01T18:07:16.344043" level="INFO">Successfully created context. </msg>
-<msg time="2025-06-01T18:07:16.344222" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 720, 'width': 1280}}</msg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Create a new BrowserContext with specified options.</doc>
-<status status="PASS" start="2025-06-01T18:07:16.313450" elapsed="0.030905"/>
+<test id="s1-t2" name="Test Case 2" line="12">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>This is test case 2</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-02T12:23:43.265310" elapsed="0.000788"/>
 </kw>
-<kw name="New Page" owner="Browser">
-<msg time="2025-06-01T18:07:17.574173" level="INFO">Successfully initialized new page object and opened url: https://www.google.com</msg>
-<arg>https://www.google.com</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Open a new Page.</doc>
-<status status="PASS" start="2025-06-01T18:07:16.344870" elapsed="1.229667"/>
-</kw>
-<kw name="Get Title" owner="Browser">
-<msg time="2025-06-01T18:07:17.625475" level="INFO">Title: 'Google'</msg>
-<msg time="2025-06-01T18:07:17.625882" level="INFO">${title} = Google</msg>
-<var>${title}</var>
-<tag>Assertion</tag>
-<tag>Getter</tag>
-<tag>PageContent</tag>
-<doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2025-06-01T18:07:17.575116" elapsed="0.050865"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-06-01T18:07:17.627972" level="INFO">Page title is: Google</msg>
-<arg>Page title is: ${title}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-01T18:07:17.626870" elapsed="0.001236"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${title}</arg>
-<arg>Google</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-06-01T18:07:17.628787" elapsed="0.000955"/>
-</kw>
-<msg time="2025-06-01T18:07:17.648762" level="INFO">Switching context to context=65a4f807-161e-45d7-9308-280d3d6b8661 in CURRENT</msg>
-<msg time="2025-06-01T18:07:17.658799" level="INFO">Successfully changed active context: context=65a4f807-161e-45d7-9308-280d3d6b8661</msg>
-<msg time="2025-06-01T18:07:17.770364" level="INFO">Successfully closed Context</msg>
-<status status="PASS" start="2025-06-01T18:07:16.307252" elapsed="1.323195"/>
+<tag>Regression</tag>
+<status status="PASS" start="2025-06-02T12:23:43.264520" elapsed="0.001967"/>
 </test>
-<kw name="Close Browser" owner="Browser" type="TEARDOWN">
-<msg time="2025-06-01T18:07:18.095319" level="INFO">Closed browser</msg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-06-01T18:07:17.774068" elapsed="0.321445"/>
+<test id="s1-t3" name="Test Case 3" line="16">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>This is test case 3</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-02T12:23:43.268548" elapsed="0.001752"/>
 </kw>
-<status status="PASS" start="2025-06-01T18:07:11.732259" elapsed="6.363347"/>
+<tag>Regression</tag>
+<status status="PASS" start="2025-06-02T12:23:43.267965" elapsed="0.002683"/>
+</test>
+<test id="s1-t4" name="Test Case 4" line="20">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>This is test case 4</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-02T12:23:43.274366" elapsed="0.000287"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" start="2025-06-02T12:23:43.273915" elapsed="0.001851"/>
+</test>
+<test id="s1-t5" name="Test Case 5" line="24">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>This is test case 5</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-02T12:23:43.277254" elapsed="0.000504"/>
+</kw>
+<tag>Sanity</tag>
+<status status="PASS" start="2025-06-02T12:23:43.276699" elapsed="0.001543"/>
+</test>
+<test id="s1-t6" name="Test Case 6" line="28">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>This is test case 6</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-02T12:23:43.280208" elapsed="0.000450"/>
+</kw>
+<status status="PASS" start="2025-06-02T12:23:43.279527" elapsed="0.001550"/>
+</test>
+<doc>Tags in Robot Framework</doc>
+<status status="PASS" start="2025-06-02T12:23:43.208125" elapsed="0.074693"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="2" fail="0" skip="0">Regression</stat>
+<stat pass="1" fail="0" skip="0">Sanity</stat>
+<stat pass="2" fail="0" skip="0">Smoke</stat>
 </tag>
 <suite>
-<stat name="Sampleplaywrighttest" id="s1" pass="2" fail="0" skip="0">Sampleplaywrighttest</stat>
+<stat name="Tags" id="s1" pass="6" fail="0" skip="0">Tags</stat>
 </suite>
 </statistics>
 <errors>
