@@ -6,9 +6,9 @@ Library  SeleniumLibrary
 
 *** Test Cases ***
 Handle JS Alerts
-    [documentation]  This test case verifies that the user is able to Accept a JS Alert
+    [Documentation]  This test case verifies that the user is able to Accept a JS Alert
     ...  and also verify its text
-    [tags]  Smoke
+    [Tags]      Smoke
     Open Browser  https://the-internet.herokuapp.com/javascript_alerts  Chrome
     Wait Until Element Is Visible  tag:button  timeout=5
     Click Element  css:li:nth-child(1) > button
@@ -18,9 +18,9 @@ Handle JS Alerts
     Close Browser
 
 Handle JS Confirm
-    [documentation]  This test case verifies that the user is able to Accept/Dismiss a JS Confirm
+    [Documentation]      This test case verifies that the user is able to Accept/Dismiss a JS Confirm
     ...  and also verify its text
-    [tags]  Smoke
+    [Tags]  Smoke
     Open Browser  https://the-internet.herokuapp.com/javascript_alerts  Chrome
     Wait Until Element Is Visible  tag:button  timeout=5
     Click Element  css:li:nth-child(2) > button
@@ -33,9 +33,9 @@ Handle JS Confirm
     Close Browser
 
 Handle JS Prompt
-    [documentation]  This test case verifies that the user is able to input text, Accept/Dismiss a JS Confirm
+    [Documentation]  This test case verifies that the user is able to input text, Accept/Dismiss a JS Confirm
     ...  and also verify its text
-    [tags]  Smoke
+    [Tags]  Smoke
     Open Browser  https://the-internet.herokuapp.com/javascript_alerts  Chrome
     Wait Until Element Is Visible  tag:button  timeout=5
     Click Element  css:li:nth-child(3) > button
@@ -43,8 +43,8 @@ Handle JS Prompt
     Should Be Equal  ${message}  I am a JS prompt
     Element Text Should Be  id:result  You entered: null
     Click Element  css:li:nth-child(3) > button
-    Input Text Into Alert  Testersdock  action=ACCEPT  #Click 'OK' after inputting the text
-    Element Text Should Be  id:result  You entered: Testersdock
+    Input Text Into Alert  testingidea  action=ACCEPT  #Click 'OK' after inputting the text
+    Element Text Should Be  id:result  You entered: testingidea
     Close Browser
 
 *** Keywords ***
