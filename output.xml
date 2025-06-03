@@ -1,73 +1,744 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-02T12:23:43.205512" rpa="false" schemaversion="5">
-<suite id="s1" name="Tags" source="C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests1\Tags.robot">
-<test id="s1-t1" name="Test Case 1" line="8">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>This is test case 1</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-02T12:23:43.261014" elapsed="0.001725"/>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-03T16:49:56.964612" rpa="false" schemaversion="5">
+<suite id="s1" name="eBayAutocompleteSuggestions" source="C:\Users\satish.r\IdeaProjects\srrobotframework\robot\tests1\eBayAutocompleteSuggestions.robot">
+<test id="s1-t1" name="Print Autocomplete Suggestions for Mobile" line="25">
+<kw name="Print eBay Autocomplete Suggestions">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:49:57.177089" level="INFO">Opening browser 'chrome' to base url 'https://www.ebay.com'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-03T16:49:57.176890" elapsed="2.335396"/>
 </kw>
-<tag>Smoke</tag>
-<status status="PASS" start="2025-06-02T12:23:43.259292" elapsed="0.003846"/>
-</test>
-<test id="s1-t2" name="Test Case 2" line="12">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>This is test case 2</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-02T12:23:43.265310" elapsed="0.000788"/>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-03T16:49:59.512707" elapsed="0.104870"/>
 </kw>
-<tag>Regression</tag>
-<status status="PASS" start="2025-06-02T12:23:43.264520" elapsed="0.001967"/>
-</test>
-<test id="s1-t3" name="Test Case 3" line="16">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>This is test case 3</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-02T12:23:43.268548" elapsed="0.001752"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=gh-ac</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-03T16:49:59.617955" elapsed="0.093269"/>
 </kw>
-<tag>Regression</tag>
-<status status="PASS" start="2025-06-02T12:23:43.267965" elapsed="0.002683"/>
-</test>
-<test id="s1-t4" name="Test Case 4" line="20">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>This is test case 4</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-02T12:23:43.274366" elapsed="0.000287"/>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:49:59.712048" level="INFO">Sending key(s) ('mobile',) to id=gh-ac element.</msg>
+<msg time="2025-06-03T16:50:00.080047" level="INFO">Sending keys mobile</msg>
+<arg>id=gh-ac</arg>
+<arg>${SEARCH_TERM}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-06-03T16:49:59.711505" elapsed="0.434487"/>
 </kw>
-<tag>Smoke</tag>
-<status status="PASS" start="2025-06-02T12:23:43.273915" elapsed="0.001851"/>
-</test>
-<test id="s1-t5" name="Test Case 5" line="24">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>This is test case 5</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-02T12:23:43.277254" elapsed="0.000504"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-03T16:50:02.146876" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-03T16:50:00.146163" elapsed="2.000824"/>
 </kw>
-<tag>Sanity</tag>
-<status status="PASS" start="2025-06-02T12:23:43.276699" elapsed="0.001543"/>
-</test>
-<test id="s1-t6" name="Test Case 6" line="28">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>This is test case 6</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-02T12:23:43.280208" elapsed="0.000450"/>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//ul[@id='ebay-autocomplete']//li[contains(@class, 'gh-evo')]</arg>
+<arg>timeout=50s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.147141" elapsed="0.034953"/>
 </kw>
-<status status="PASS" start="2025-06-02T12:23:43.279527" elapsed="0.001550"/>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:02.191219" level="INFO">${items} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="a506876916e2626ace7cd22e3b197be7", element="f.99BCFEC5A6FFD23ADA1FE9E275BFE01C.d.0FE0E94D3185E7DAF99A6E381FDEF737.e.3870")&gt;, &lt;selenium.webdr...</msg>
+<var>${items}</var>
+<arg>xpath=//ul[@id='ebay-autocomplete']//li[contains(@class, 'gh-evo')]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.182233" elapsed="0.009024"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:02.203802" level="INFO">${text} = mobile phones</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.191550" elapsed="0.012290"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:02.204082" level="INFO">mobile phones</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.203962" elapsed="0.000152"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a506876916e2626ace7cd22e3b197be7", element="f.99BCFEC5A6FFD23ADA1FE9E275BFE01C.d.0FE0E94D3185E7DAF99A6E381FDEF737.e.3870")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:02.191468" elapsed="0.012676"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:02.213584" level="INFO">${text} = mobile homes for sale</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.204292" elapsed="0.009328"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:02.213850" level="INFO">mobile homes for sale</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.213735" elapsed="0.000144"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a506876916e2626ace7cd22e3b197be7", element="f.99BCFEC5A6FFD23ADA1FE9E275BFE01C.d.0FE0E94D3185E7DAF99A6E381FDEF737.e.3881")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:02.204236" elapsed="0.009673"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:02.222489" level="INFO">${text} = mobile home</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.214057" elapsed="0.008481"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:02.222773" level="INFO">mobile home</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.222657" elapsed="0.000146"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a506876916e2626ace7cd22e3b197be7", element="f.99BCFEC5A6FFD23ADA1FE9E275BFE01C.d.0FE0E94D3185E7DAF99A6E381FDEF737.e.3892")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:02.214003" elapsed="0.008830"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:02.231498" level="INFO">${text} = mobile fidelity vinyl</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.222964" elapsed="0.008574"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:02.231766" level="INFO">mobile fidelity vinyl</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.231649" elapsed="0.000145"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a506876916e2626ace7cd22e3b197be7", element="f.99BCFEC5A6FFD23ADA1FE9E275BFE01C.d.0FE0E94D3185E7DAF99A6E381FDEF737.e.3903")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:02.222913" elapsed="0.008908"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:02.241347" level="INFO">${text} = mobile phones unlocked</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.231964" elapsed="0.009438"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:02.241745" level="INFO">mobile phones unlocked</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.241580" elapsed="0.000212"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a506876916e2626ace7cd22e3b197be7", element="f.99BCFEC5A6FFD23ADA1FE9E275BFE01C.d.0FE0E94D3185E7DAF99A6E381FDEF737.e.3914")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:02.231906" elapsed="0.009934"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:02.250833" level="INFO">${text} = mobile home parts</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.242059" elapsed="0.008815"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:02.251100" level="INFO">mobile home parts</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.250992" elapsed="0.000136"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a506876916e2626ace7cd22e3b197be7", element="f.99BCFEC5A6FFD23ADA1FE9E275BFE01C.d.0FE0E94D3185E7DAF99A6E381FDEF737.e.3925")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:02.241970" elapsed="0.009184"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:02.261231" level="INFO">${text} = mobile fidelity sound lab vinyl</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.251468" elapsed="0.009801"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:02.261510" level="INFO">mobile fidelity sound lab vinyl</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.261392" elapsed="0.000148"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a506876916e2626ace7cd22e3b197be7", element="f.99BCFEC5A6FFD23ADA1FE9E275BFE01C.d.0FE0E94D3185E7DAF99A6E381FDEF737.e.3936")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:02.251403" elapsed="0.010168"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:02.270487" level="INFO">${text} = mobile suit ensemble</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.261709" elapsed="0.008817"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:02.270736" level="INFO">mobile suit ensemble</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.270638" elapsed="0.000123"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a506876916e2626ace7cd22e3b197be7", element="f.99BCFEC5A6FFD23ADA1FE9E275BFE01C.d.0FE0E94D3185E7DAF99A6E381FDEF737.e.3947")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:02.261653" elapsed="0.009134"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:02.279735" level="INFO">${text} = mobile coffee trailers</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.270910" elapsed="0.008861"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:02.279996" level="INFO">mobile coffee trailers</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.279890" elapsed="0.000134"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a506876916e2626ace7cd22e3b197be7", element="f.99BCFEC5A6FFD23ADA1FE9E275BFE01C.d.0FE0E94D3185E7DAF99A6E381FDEF737.e.3958")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:02.270860" elapsed="0.009190"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:02.287676" level="INFO">${text} = mobile suit gundam blu ray</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.280185" elapsed="0.007535"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:02.288103" level="INFO">mobile suit gundam blu ray</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.287923" elapsed="0.000228"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a506876916e2626ace7cd22e3b197be7", element="f.99BCFEC5A6FFD23ADA1FE9E275BFE01C.d.0FE0E94D3185E7DAF99A6E381FDEF737.e.3969")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:02.280130" elapsed="0.008062"/>
+</iter>
+<var>${item}</var>
+<value>@{items}</value>
+<status status="PASS" start="2025-06-03T16:50:02.191334" elapsed="0.096903"/>
+</for>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-03T16:50:02.288336" elapsed="2.202263"/>
+</kw>
+<arg>mobile</arg>
+<status status="PASS" start="2025-06-03T16:49:57.176389" elapsed="7.314476"/>
+</kw>
+<status status="PASS" start="2025-06-03T16:49:57.175692" elapsed="7.316046"/>
 </test>
-<doc>Tags in Robot Framework</doc>
-<status status="PASS" start="2025-06-02T12:23:43.208125" elapsed="0.074693"/>
+<test id="s1-t2" name="Print Autocomplete Suggestions for laptop" line="27">
+<kw name="Print eBay Autocomplete Suggestions">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:04.495618" level="INFO">Opening browser 'chrome' to base url 'https://www.ebay.com'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-03T16:50:04.495347" elapsed="2.076277"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-03T16:50:06.571947" elapsed="0.088325"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=gh-ac</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-03T16:50:06.661409" elapsed="0.067839"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:06.730524" level="INFO">Sending key(s) ('laptop',) to id=gh-ac element.</msg>
+<msg time="2025-06-03T16:50:07.034326" level="INFO">Sending keys laptop</msg>
+<arg>id=gh-ac</arg>
+<arg>${SEARCH_TERM}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-06-03T16:50:06.729468" elapsed="0.336581"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-03T16:50:09.066880" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-03T16:50:07.066253" elapsed="2.000833"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//ul[@id='ebay-autocomplete']//li[contains(@class, 'gh-evo')]</arg>
+<arg>timeout=50s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-03T16:50:09.067403" elapsed="11.242035"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:20.316398" level="INFO">${items} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="3bfd63c8046966eda1fdeab38975ba76", element="f.E1302A5C9B3B03C9FB84E5CF28C6D215.d.6732898840EB759866A9AD716B3D9E00.e.4621")&gt;, &lt;selenium.webdr...</msg>
+<var>${items}</var>
+<arg>xpath=//ul[@id='ebay-autocomplete']//li[contains(@class, 'gh-evo')]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.309567" elapsed="0.006870"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:20.328568" level="INFO">${text} = laptop computers</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.316723" elapsed="0.011878"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:20.328820" level="INFO">laptop computers</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.328711" elapsed="0.000135"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3bfd63c8046966eda1fdeab38975ba76", element="f.E1302A5C9B3B03C9FB84E5CF28C6D215.d.6732898840EB759866A9AD716B3D9E00.e.4621")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:20.316638" elapsed="0.012233"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:20.337024" level="INFO">${text} = laptop gaming</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.328996" elapsed="0.008063"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:20.337434" level="INFO">laptop gaming</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.337309" elapsed="0.000156"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3bfd63c8046966eda1fdeab38975ba76", element="f.E1302A5C9B3B03C9FB84E5CF28C6D215.d.6732898840EB759866A9AD716B3D9E00.e.4632")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:20.328946" elapsed="0.008549"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:20.345423" level="INFO">${text} = laptop i7</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.337621" elapsed="0.007839"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:20.345677" level="INFO">laptop i7</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.345570" elapsed="0.000144"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3bfd63c8046966eda1fdeab38975ba76", element="f.E1302A5C9B3B03C9FB84E5CF28C6D215.d.6732898840EB759866A9AD716B3D9E00.e.4643")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:20.337571" elapsed="0.008172"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:20.354162" level="INFO">${text} = laptop lot</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.345874" elapsed="0.008320"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:20.354421" level="INFO">laptop lot</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.354308" elapsed="0.000141"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3bfd63c8046966eda1fdeab38975ba76", element="f.E1302A5C9B3B03C9FB84E5CF28C6D215.d.6732898840EB759866A9AD716B3D9E00.e.4654")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:20.345820" elapsed="0.008656"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:20.362120" level="INFO">${text} = laptop dell</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.354601" elapsed="0.007559"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:20.362392" level="INFO">laptop dell</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.362278" elapsed="0.000141"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3bfd63c8046966eda1fdeab38975ba76", element="f.E1302A5C9B3B03C9FB84E5CF28C6D215.d.6732898840EB759866A9AD716B3D9E00.e.4665")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:20.354551" elapsed="0.007896"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:20.384016" level="INFO">${text} = laptop i5</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.362585" elapsed="0.021472"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:20.384296" level="INFO">laptop i5</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.384179" elapsed="0.000153"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3bfd63c8046966eda1fdeab38975ba76", element="f.E1302A5C9B3B03C9FB84E5CF28C6D215.d.6732898840EB759866A9AD716B3D9E00.e.4676")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:20.362529" elapsed="0.021830"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:20.402093" level="INFO">${text} = laptop bag</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.384500" elapsed="0.017632"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:20.402391" level="INFO">laptop bag</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.402266" elapsed="0.000153"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3bfd63c8046966eda1fdeab38975ba76", element="f.E1302A5C9B3B03C9FB84E5CF28C6D215.d.6732898840EB759866A9AD716B3D9E00.e.4687")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:20.384444" elapsed="0.018003"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:20.416624" level="INFO">${text} = laptop rtx</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.402587" elapsed="0.014096"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:20.417071" level="INFO">laptop rtx</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.416868" elapsed="0.000260"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3bfd63c8046966eda1fdeab38975ba76", element="f.E1302A5C9B3B03C9FB84E5CF28C6D215.d.6732898840EB759866A9AD716B3D9E00.e.4698")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:20.402532" elapsed="0.014652"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:20.431504" level="INFO">${text} = laptop</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.417427" elapsed="0.014134"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:20.431946" level="INFO">laptop</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.431755" elapsed="0.000251"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3bfd63c8046966eda1fdeab38975ba76", element="f.E1302A5C9B3B03C9FB84E5CF28C6D215.d.6732898840EB759866A9AD716B3D9E00.e.4709")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:20.417326" elapsed="0.014743"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:20.447053" level="INFO">${text} = laptop for parts</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.432341" elapsed="0.014767"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:20.447479" level="INFO">laptop for parts</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.447299" elapsed="0.000234"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3bfd63c8046966eda1fdeab38975ba76", element="f.E1302A5C9B3B03C9FB84E5CF28C6D215.d.6732898840EB759866A9AD716B3D9E00.e.4720")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:20.432224" elapsed="0.015366"/>
+</iter>
+<var>${item}</var>
+<value>@{items}</value>
+<status status="PASS" start="2025-06-03T16:50:20.316509" elapsed="0.131147"/>
+</for>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-03T16:50:20.447821" elapsed="2.284881"/>
+</kw>
+<arg>laptop</arg>
+<status status="PASS" start="2025-06-03T16:50:04.494877" elapsed="18.238015"/>
+</kw>
+<status status="PASS" start="2025-06-03T16:50:04.493863" elapsed="18.239722"/>
+</test>
+<test id="s1-t3" name="Print Autocomplete Suggestions for camera" line="29">
+<kw name="Print eBay Autocomplete Suggestions">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:22.736104" level="INFO">Opening browser 'chrome' to base url 'https://www.ebay.com'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-03T16:50:22.735780" elapsed="2.192856"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-03T16:50:24.928804" elapsed="0.082410"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=gh-ac</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-03T16:50:25.012251" elapsed="0.117646"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:25.131127" level="INFO">Sending key(s) ('camera',) to id=gh-ac element.</msg>
+<msg time="2025-06-03T16:50:25.462130" level="INFO">Sending keys camera</msg>
+<arg>id=gh-ac</arg>
+<arg>${SEARCH_TERM}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-06-03T16:50:25.130273" elapsed="0.433171"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.564209" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-03T16:50:25.563632" elapsed="2.000678"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//ul[@id='ebay-autocomplete']//li[contains(@class, 'gh-evo')]</arg>
+<arg>timeout=50s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.564436" elapsed="0.029524"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.601825" level="INFO">${items} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4578")&gt;, &lt;selenium.webdr...</msg>
+<var>${items}</var>
+<arg>xpath=//ul[@id='ebay-autocomplete']//li[contains(@class, 'gh-evo')]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.594098" elapsed="0.007766"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.614423" level="INFO">${text} = camera security</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.602134" elapsed="0.012346"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.614841" level="INFO">camera security</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.614660" elapsed="0.000236"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4578")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:27.602053" elapsed="0.012978"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.626639" level="INFO">${text} = camera security
+in Surveillance &amp; Smart Home Electronics</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.615369" elapsed="0.011306"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.626907" level="INFO">camera security
+in Surveillance &amp; Smart Home Electronics</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.626789" elapsed="0.000146"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4590")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:27.615267" elapsed="0.011696"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.636556" level="INFO">${text} = camera security
+in Home Improvement</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.627096" elapsed="0.009523"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.637010" level="INFO">camera security
+in Home Improvement</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.636828" elapsed="0.000234"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4602")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:27.627042" elapsed="0.010070"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.645787" level="INFO">${text} = camera digital</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.637338" elapsed="0.008600"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.646386" level="INFO">camera digital</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.646181" elapsed="0.000255"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4613")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:27.637246" elapsed="0.009239"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.656937" level="INFO">${text} = camera bag</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.646700" elapsed="0.010291"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.657321" level="INFO">camera bag</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.657158" elapsed="0.000211"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4624")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:27.646613" elapsed="0.010805"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.666427" level="INFO">${text} = camera lot</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.657643" elapsed="0.008822"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.666695" level="INFO">camera lot</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.666584" elapsed="0.000139"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4635")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:27.657548" elapsed="0.009203"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.676039" level="INFO">${text} = camera backpack</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.667028" elapsed="0.009078"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.676494" level="INFO">camera backpack</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.676328" elapsed="0.000207"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4646")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:27.666959" elapsed="0.009619"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.685502" level="INFO">${text} = camera strap</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.676756" elapsed="0.008795"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.685925" level="INFO">camera strap</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.685716" elapsed="0.000256"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4657")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:27.676681" elapsed="0.009338"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.695199" level="INFO">${text} = camera tripod</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.686262" elapsed="0.008987"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.695575" level="INFO">camera tripod</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.695417" elapsed="0.000203"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4668")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:27.686188" elapsed="0.009479"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.704752" level="INFO">${text} = camera lens</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.695883" elapsed="0.008923"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.705080" level="INFO">camera lens</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.704958" elapsed="0.000152"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4679")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:27.695793" elapsed="0.009346"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.714257" level="INFO">${text} = camera sony</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.705275" elapsed="0.009031"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.714620" level="INFO">camera sony</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.714470" elapsed="0.000195"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4690")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:27.705219" elapsed="0.009492"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-03T16:50:27.723805" level="INFO">${text} = camera</msg>
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.714915" elapsed="0.008940"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-03T16:50:27.724183" level="INFO">camera</msg>
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.724025" elapsed="0.000206"/>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="5a51c97ff958efbfe4e2d37384fa1549", element="f.68CCFD21F362B267FA0696FBFF86FF2F.d.28FCE23F65B605A61BC8B78EBE0ED8E3.e.4701")&gt;</var>
+<status status="PASS" start="2025-06-03T16:50:27.714832" elapsed="0.009448"/>
+</iter>
+<var>${item}</var>
+<value>@{items}</value>
+<status status="PASS" start="2025-06-03T16:50:27.601939" elapsed="0.122403"/>
+</for>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-03T16:50:27.724460" elapsed="2.217375"/>
+</kw>
+<arg>camera</arg>
+<status status="PASS" start="2025-06-03T16:50:22.735319" elapsed="7.206677"/>
+</kw>
+<status status="PASS" start="2025-06-03T16:50:22.734658" elapsed="7.207711"/>
+</test>
+<status status="PASS" start="2025-06-03T16:49:56.965908" elapsed="32.977700"/>
 </suite>
 <statistics>
 <total>
-<stat pass="6" fail="0" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="2" fail="0" skip="0">Regression</stat>
-<stat pass="1" fail="0" skip="0">Sanity</stat>
-<stat pass="2" fail="0" skip="0">Smoke</stat>
 </tag>
 <suite>
-<stat name="Tags" id="s1" pass="6" fail="0" skip="0">Tags</stat>
+<stat name="eBayAutocompleteSuggestions" id="s1" pass="3" fail="0" skip="0">eBayAutocompleteSuggestions</stat>
 </suite>
 </statistics>
 <errors>
