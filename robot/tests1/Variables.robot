@@ -10,8 +10,8 @@ ${PasswordHRM}  admin123    #Scalar
 
 *** Test Cases ***
 Verify Successful Login to OrangeHRM
-    [documentation]  This test case verifies that the user is able to successfully log in to OrangeHRM
-    [tags]  Smoke
+    [Documentation]  This test case verifies that the user is able to successfully log in to OrangeHRM
+    [Tags]  Smoke
     Open Browser  https://opensource-demo.orangehrmlive.com/  Chrome
     Wait Until Element Is Visible  id:txtUsername  timeout=5
     Input Text  id:txtUsername  ${UserNameHRM}
@@ -21,8 +21,8 @@ Verify Successful Login to OrangeHRM
     Close Browser
 
 Verify Successful Login to the-internet.herokuapp
-    [documentation]  This test case verifies that user is able to successfully Login to the-internet.herokuapp
-    [tags]  Smoke
+    [Documentation]  This test case verifies that user is able to successfully Login to the-internet.herokuapp
+    [Tags]  Smoke
     Open Browser  https://the-internet.herokuapp.com/login  Chrome
     Wait Until Element Is Visible  id:username  timeout=5
     Input Text  id:username  ${CredentialsTheInternetHerokuApp}[0]

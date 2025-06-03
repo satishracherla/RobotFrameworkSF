@@ -9,10 +9,10 @@ Library  Collections
 
 *** Test Cases ***
 Do a GET Request and validate the response code and response body
-    [documentation]  This test case verifies that the response code of the GET Request should be 200,
+    [Documentation]  This test case verifies that the response code of the GET Request should be 200,
     ...  the response body contains the 'title' key with value as 'London',
     ...  and the response body contains the key 'location_type'.
-    [tags]  Smoke
+    [Tags]  Smoke
     Create Session  mysession  https://www.metaweather.com  verify=true
     ${response}=  GET On Session  mysession  /api/location/search/  params=query=london
     Status Should Be  200  ${response}  #Check Status as 200
@@ -27,10 +27,10 @@ Do a GET Request and validate the response code and response body
     Should Contain  ${body}  location_type
 
 Do a POST Request and validate the response code, response body, and response headers
-    [documentation]  This test case verifies that the response code of the POST Request should be 201,
+    [Documentation]  This test case verifies that the response code of the POST Request should be 201,
     ...  the response body contains the 'id' key with value '101',
     ...  and the response header 'Content-Type' has the value 'application/json; charset=utf-8'.
-    [tags]  Regression
+    [Tags]  Regression
     Create Session  mysession  https://jsonplaceholder.typicode.com  verify=true
     &{body}=  Create Dictionary  title=foo  body=bar  userId=9000
     &{header}=  Create Dictionary  Cache-Control=no-cache

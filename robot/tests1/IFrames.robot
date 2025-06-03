@@ -6,7 +6,7 @@ Library  SeleniumLibrary
 
 *** Test Cases ***
 Verify that a string can be written and read from a Simple Iframe
-    [documentation]  This test case verifies that a string can be written and read from an Iframe.
+    [Documentation]  This test case verifies that a string can be written and read from an Iframe.
     [tags]  Regression
     Open Browser  https://the-internet.herokuapp.com/iframe  Chrome
     Wait Until Element Is Visible  css:[role="menubar"]  timeout=5
@@ -18,7 +18,7 @@ Verify that a string can be written and read from a Simple Iframe
     Close Browser
 
 Verify that the the values can be read from inside a Nested Iframe
-    [documentation]  This test case verifies that the a string can be read from a Nested Iframe.
+    [Documentation]  This test case verifies that the a string can be read from a Nested Iframe.
     [tags]  Regression
     Open Browser  https://the-internet.herokuapp.com/nested_frames  Chrome
     Wait Until Element Is Visible  css:[frameborder="1"]  timeout=5

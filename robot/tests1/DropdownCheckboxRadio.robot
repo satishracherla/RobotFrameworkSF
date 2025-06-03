@@ -6,8 +6,8 @@ Library  SeleniumLibrary
 
 *** Test Cases ***
 Validate user can select items from the dropdown
-    [documentation]  This test case verifies that the user can select values from the dropdown and verify it
-    [tags]  Smoke
+    [Documentation]  This test case verifies that the user can select values from the dropdown and verify it
+    [Tags]  Smoke
     Open Browser  https://the-internet.herokuapp.com/dropdown  Chrome
     Wait Until Element Is Visible  id:dropdown  timeout=5
     Select From List By Index  id:dropdown  1
@@ -17,8 +17,8 @@ Validate user can select items from the dropdown
     Close Browser
 
 Validate user can check and uncheck checkboxes
-    [documentation]  This test case verifies that the user can check and uncheck checkboxes and verify it
-    [tags]  Smoke
+    [Documentation]  This test case verifies that the user can check and uncheck checkboxes and verify it
+    [Tags]  Smoke
     Open Browser  https://the-internet.herokuapp.com/checkboxes  Chrome
     Wait Until Element Is Visible  id:checkboxes  timeout=5
     Page Should Contain Checkbox  tag:input
@@ -31,8 +31,8 @@ Validate user can check and uncheck checkboxes
     Close Browser
 
 Validate user can select radio buttons
-    [documentation]  This test case verifies that the user can select radio buttons and verify it
-    [tags]  Smoke
+    [Documentation]  This test case verifies that the user can select radio buttons and verify it
+    [Tags]  Smoke
     Open Browser  https://www.seleniumeasy.com/test/basic-radiobutton-demo.html  Chrome
     Wait Until Element Is Visible  tag:input  timeout=10
     Page Should Contain Radio Button  tag:input

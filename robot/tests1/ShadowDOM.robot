@@ -12,8 +12,8 @@ ${JSPath}=  document.querySelector('shop-app').shadowRoot  #1
 
 *** Test Cases ***
 Verify the item title by traversing Shadow DOM
-    [documentation]  This test case verifies the item title by traversing through the shadow dom.
-    [tags]  Smoke
+    [Documentation]  This test case verifies the item title by traversing through the shadow dom.
+    [Tags]  Smoke
     Open Browser  https://shop.polymer-project.org/list/mens_outerwear  Chrome
     Element Text Should Be  dom:${JSPath}  Men\'s Tech Shell Full-Zip  timeout=5
     Close Browser

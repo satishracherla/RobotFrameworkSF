@@ -6,8 +6,8 @@ Library  SeleniumLibrary
 
 *** Test Cases ***
 Verify Successful Login to OrangeHRM
-    [documentation]  This test case verifies that the user is able to successfully log in to OrangeHRM
-    [tags]  Smoke
+    [Documentation]  This test case verifies that the user is able to successfully log in to OrangeHRM
+    [Tags]  Smoke
     Start Test
     Login
     End Test

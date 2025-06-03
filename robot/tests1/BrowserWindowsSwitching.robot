@@ -6,9 +6,9 @@ Library  SeleniumLibrary
 
 *** Test Cases ***
 Switch between Browser windows using 'Browser Title' and verify the text
-    [documentation]  This test case verifies that the user is able to switch between browser
+    [Documentation]  This test case verifies that the user is able to switch between browser
     ...  windows using browser title and verify the text.
-    [tags]  Smoke
+    [Tags]  Smoke
     Open Browser  https://the-internet.herokuapp.com/windows  Chrome
     Wait Until Element Is Visible  tag:h3  timeout=5
     Click Element  css:[href="/windows/new"]
@@ -19,9 +19,9 @@ Switch between Browser windows using 'Browser Title' and verify the text
     Close Browser
 
 Switch between Browser windows using 'Get Window Handles' and verify the text
-    [documentation]  This test case verifies that the user is able to switch between browser
+    [Documentation]  This test case verifies that the user is able to switch between browser
     ...  windows using window handles and verify the text.
-    [tags]  Smoke
+    [Tags]  Smoke
     Open Browser  https://the-internet.herokuapp.com/windows  chrome
     Wait Until Element Is Visible  tag:h3  timeout=5
     Click Element  css:[href="/windows/new"]

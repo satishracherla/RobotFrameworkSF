@@ -8,8 +8,8 @@ Library  Collections
 
 *** Test Cases ***
 Verify that all the quick launch texts is same as our Text list
-    [documentation]  This test case verifies that the quick launch texts from the webpage matches our Text list.
-    [tags]  Smoke
+    [Documentation]  This test case verifies that the quick launch texts from the webpage matches our Text list.
+    [Tags]  Smoke
     Open Browser  https://opensource-demo.orangehrmlive.com/  Chrome
     Wait Until Element Is Visible  id:txtUsername  timeout=5
     Input Text  id:txtUsername  Admin
