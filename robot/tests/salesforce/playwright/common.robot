@@ -1,11 +1,10 @@
 *** Settings ***
 Library   Browser
-
 *** Keywords ***
 LoginToSalesforce
     [Documentation]    Login to Salesforce
     New Browser    chromium    headless=false
-    New Context    viewport={'width': 1920, 'height': 1080}
+    New Context    viewport={'width': 1820, 'height': 1080}
     New Page     https://login.salesforce.com
     Fill Text    input#username    satish.r177@agentforce.com
     Fill Text    input#password    Agentforce@2025
@@ -32,7 +31,7 @@ ClickOnMainMenu
 ClickOnNewButton
     [Documentation]    Click on the New Button
     ${new_locator}=    Set Variable    //div[@title='New']
-    Wait For Elements State    ${new_locator}    visible    timeout=5s
+    Wait For Elements State    ${new_locator}    visible    timeout=10s
     Click     ${new_locator}
 
 ClickOnSaveButton
@@ -46,3 +45,23 @@ ClickOnNewTaskButton
         ${new_task_locator}=    Set Variable    //div[@title='New Task']
         Wait For Elements State    ${new_task_locator}    visible    timeout=5s
         Click    ${new_task_locator}
+
+Select Dropdown Option
+    [Documentation]    Selects an option from a dropdown by field label and option value
+    [Arguments]    ${FieldLabel}    ${OptionValue}
+
+    # Wait for and locate the dropdown button
+    ${button_locator}=    Set Variable    //button[@aria-label='${FieldLabel}']
+    Wait For Elements State    ${button_locator}    visible    timeout=10s
+
+    # Click to open the dropdown
+    Click    ${button_locator}
+
+    # Wait for and select the option
+    ${option_locator}=    Set Variable    //lightning-base-combobox-item//span[text()='${OptionValue}']
+    Wait For Elements State    ${option_locator}    visible    timeout=5s
+    Click    ${option_locator}
+
+    # Verify selection (optional but recommended)
+    ${selected_text}=    Get Text    ${button_locator}
+    Should Be Equal    ${selected_text}    ${OptionValue}    msg=Selected option does not match expected value
