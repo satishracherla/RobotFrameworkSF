@@ -1,0 +1,197 @@
+*** Settings ***
+Documentation                   Test suite for User story creation functionality
+Library                         QForce
+Library                         QWeb
+Suite Setup                     Open Browser                about:blank                 chrome
+Suite Teardown                  Close All Browsers
+
+*** Variables ***
+${LoginUrl}                     https://test.salesforce.com
+${Username}                     Praveenkumar.t@cloudfulcrum.com.scm
+${Password}                     zxASqw12#
+${NUM_USER_STORIES}             2                           # Number of user stories to create
+${Project}                      Metadata pipeline project
+${Credential}                   SF Dev
+${locator}                      xpath=//div[contains(@class, grid-cell-base)]//input[@tabindex='7']
+${cb1}                          xpath=//div[@columnindex='0' and contains(@style, 'z-index: 128')]
+${cb2}                          xpath=//div[@columnindex='0' and contains(@style, 'z-index: 120')]
+${cb3}                          xpath=//div[@columnindex='0' and contains(@style, 'z-index: 112')]
+${cb4}                          xpath=//div[@columnindex='0' and contains(@style, 'z-index: 104')]
+${cb5}                          xpath=//div[@columnindex='0' and contains(@style, 'z-index: 96')]
+${cb6}                          xpath=//div[@columnindex='0' and contains(@style, 'z-index: 88')]
+${cb7}                          xpath=//div[@columnindex='0' and contains(@style, 'z-index: 80')]
+${cb8}                          xpath=//div[@columnindex='0' and contains(@style, 'z-index: 72')]
+${cb9}                          xpath=//div[@columnindex='0' and contains(@style, 'z-index: 64')]
+${cb10}                         xpath=//div[@columnindex='0' and contains(@style, 'z-index: 56')]
+${cb11}                         xpath=//div[@columnindex='0' and contains(@style, 'z-index: 48')]
+${cb12}                         xpath=//div[@columnindex='0' and contains(@style, 'z-index: 40')]
+${cb13}                         xpath=//div[@columnindex='0' and contains(@style, 'z-index: 32')]
+${cb14}                         xpath=//div[@columnindex='0' and contains(@style, 'z-index: 24')]
+${cb15}                         xpath=//div[@columnindex='0' and contains(@style, 'z-index: 16')]
+${ComponentName1}               testdata1
+
+*** Keywords ***
+LoginToCopado
+    [Documentation]             Logs into Salesforce instance using provided credentials
+    [Arguments]                 ${LoginUrl}                 ${Username}                 ${Password}
+    GoTo                        ${LoginUrl}
+    TypeText                    Username                    ${Username}
+    TypeSecret                  Password                    ${Password}
+    ClickText                   Log In
+
+Select3Checkboxes
+    [Arguments]                 ${checkbox1}                ${checkbox2}                ${checkbox3}
+    ClickCheckbox               ${checkbox1}                on                          timeout=2
+    ClickCheckbox               ${checkbox2}                on                          timeout=2
+    ClickCheckbox               ${checkbox3}                on                          timeout=2
+
+Select4Checkboxes
+    [Arguments]                 ${checkbox1}                ${checkbox2}                ${checkbox3}     ${checkbox4}
+    ClickCheckbox               ${checkbox1}                on                          timeout=2
+    ClickCheckbox               ${checkbox2}                on                          timeout=2
+    ClickCheckbox               ${checkbox3}                on                          timeout=2
+    ClickCheckbox               ${checkbox4}                on                          timeout=2
+
+Select5Checkboxes
+    [Arguments]                 ${checkbox1}                ${checkbox2}                ${checkbox3}     ${checkbox4}           ${checkbox5}
+    ClickCheckbox               ${checkbox1}                on                          timeout=2
+    ClickCheckbox               ${checkbox2}                on                          timeout=2
+    ClickCheckbox               ${checkbox3}                on                          timeout=2
+    ClickCheckbox               ${checkbox4}                on                          timeout=2
+    ClickCheckbox               ${checkbox5}                on                          timeout=2
+Generate Unique User Story Name
+    [Documentation]             Generates a truly unique user story name using random number
+    ${random}=                  Evaluate                    random.randint(1000, 9999)                   random
+    ${userstory_unique_name}=                               Set Variable                MetaDataConversion Test_${random}
+    Set Suite Variable          ${userstory_unique_name}
+    Log                         Created unique user story name: ${userstory_unique_name}
+CreateNewUserStory
+    [Documentation]             Creates a new User story with basic information
+    [Arguments]                 ${index}                    ${userstory_unique_name}    ${project}       ${Credential}
+    ClickText                   User Stories
+    ClickText                   New
+    Sleep                       2
+    UseModal                    On
+    VerifyText                  User Story
+    Sleep                       2
+    ClickText                   User Story                  anchor=Investigation
+    Sleep                       2
+    ClickText                   Next
+    TypeText                    Title                       ${userstory_unique_name}_${index}
+    Sleep                       2
+    ComboBox                    Search Projects...          ${project}
+    Sleep                       2
+    ScrollText                  Information
+    ClickText                   Information
+    Sleep                       2
+    ComboBox                    Credential                  ${Credential}
+    Sleep                       2
+    ClickText                   Save                        partial_match=False
+    UseModal                    Off
+
+CommitChanges
+    [Arguments]                 ${ComponentName1}           ${checkbox1}                ${checkbox9}     ${checkbox10}
+    ClickText                   Commit Changes
+    Sleep                       10
+    # Wait for the metadata component search field to appear
+    VerifyElement               ${locator}
+    ClickElement                ${locator}
+    Sleep                       5
+    TypeText                    ${locator}                  ${ComponentName1}           timeout=10
+    Sleep                       5
+    Select3Checkboxes           ${checkbox1}                ${checkbox9}                ${checkbox10}
+    # Wait for search results to appear
+    #VerifyText                 Select All                  timeout=20
+    #ClickText                  Select All
+    # Sleep                     5
+    # VerifyElement             ${locator}
+    # ClickElement              ${locator}
+    # Sleep                     5
+    # TypeText                  ${locator}                  ${ComponentName2}           timeout=10
+    # Sleep                     5
+    # Select3Checkboxes         ${checkbox1}                ${checkbox2}                ${checkbox3}
+    # Wait for search results to appear
+    #VerifyText                 Select All                  timeout=20
+    #ClickText                  Select All
+    Sleep                       5
+    ClickText                   Commit Changes
+    Sleep                       10
+Create Multiple User Stories
+    [Arguments]                 ${ComponentName1}           ${checkbox1}                ${checkbox9}     ${checkbox10}
+    Generate Unique User Story Name
+    FOR                         ${index}                    IN RANGE                    1                ${NUM_USER_STORIES}
+    # Format the index with leading zeros (e.g., 001, 002)
+        ${formatted_index}=     Convert To String           ${index}
+        ${formatted_index}=     Evaluate                    "${formatted_index}".zfill(3)
+        CreateNewUserStory      ${formatted_index}          ${userstory_unique_name}    ${Project}       ${Credential}
+        Sleep                   3                           # Add a small delay between iterations
+        CommitChanges           ${ComponentName1}           ${checkbox1}                ${checkbox9}     ${checkbox10}
+    END
+
+*** Test Cases ***
+Create Multiple User Stories with Search Keywords
+    LoginToCopado               ${LoginUrl}                 ${Username}                 ${Password}
+    Create Multiple User Stories                            Testing_Object4__c          ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object4__c          ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object4__c          ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object4__c          ${checkbox12}    ${checkbox13}          ${checkbox15}
+    Create Multiple User Stories                            Testing_Object5__c          ${checkbox1}     ${checkbox6}           ${checkbox7}
+    Create Multiple User Stories                            Testing_Object5__c          ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object5__c          ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object5__c          ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object5__c          ${checkbox12}    ${checkbox13}          ${checkbox15}
+    Create Multiple User Stories                            Testing_Object6__c          ${checkbox1}     ${checkbox6}           ${checkbox7}
+    Create Multiple User Stories                            Testing_Object6__c          ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object6__c          ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object6__c          ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object6__c          ${checkbox12}    ${checkbox13}          ${checkbox15}
+    Create Multiple User Stories                            Testing_Object7__c          ${checkbox1}     ${checkbox6}           ${checkbox7}
+    Create Multiple User Stories                            Testing_Object7__c          ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object7__c          ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object7__c          ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object7__c          ${checkbox12}    ${checkbox13}          ${checkbox15}
+    Create Multiple User Stories                            Testing_Object8__c          ${checkbox1}     ${checkbox6}           ${checkbox7}
+    Create Multiple User Stories                            Testing_Object8__c          ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object8__c          ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object8__c          ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object8__c          ${checkbox12}    ${checkbox13}          ${checkbox15}
+    Create Multiple User Stories                            Testing_Object9__c          ${checkbox1}     ${checkbox6}           ${checkbox7}
+    Create Multiple User Stories                            Testing_Object9__c          ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object9__c          ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object9__c          ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object9__c          ${checkbox12}    ${checkbox13}          ${checkbox15}
+    Create Multiple User Stories                            Testing_Object10__c         ${checkbox1}     ${checkbox6}           ${checkbox7}
+    Create Multiple User Stories                            Testing_Object10__c         ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object10__c         ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object10__c         ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object10__c         ${checkbox12}    ${checkbox13}          ${checkbox15}
+    Create Multiple User Stories                            Testing_Object11__c         ${checkbox1}     ${checkbox6}           ${checkbox7}
+    Create Multiple User Stories                            Testing_Object11__c         ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object11__c         ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object11__c         ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object11__c         ${checkbox12}    ${checkbox13}          ${checkbox15}
+    Create Multiple User Stories                            Testing_Object6__c          ${checkbox1}     ${checkbox6}           ${checkbox7}
+    Create Multiple User Stories                            Testing_Object6__c          ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object6__c          ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object6__c          ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object6__c          ${checkbox12}    ${checkbox13}          ${checkbox15}
+    Create Multiple User Stories                            Testing_Object7__c          ${checkbox1}     ${checkbox6}           ${checkbox7}
+    Create Multiple User Stories                            Testing_Object7__c          ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object7__c          ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object7__c          ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object7__c          ${checkbox12}    ${checkbox13}          ${checkbox15}
+    Create Multiple User Stories                            Testing_Object8__c          ${checkbox1}     ${checkbox6}           ${checkbox7}
+    Create Multiple User Stories                            Testing_Object8__c          ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object8__c          ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object8__c          ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object8__c          ${checkbox12}    ${checkbox13}          ${checkbox15}
+    Create Multiple User Stories                            Testing_Object9__c          ${checkbox1}     ${checkbox6}           ${checkbox7}
+    Create Multiple User Stories                            Testing_Object9__c          ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object9__c          ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object9__c          ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object9__c          ${checkbox12}    ${checkbox13}          ${checkbox15}
+    Create Multiple User Stories                            Testing_Object11__c         ${checkbox1}     ${checkbox6}           ${checkbox7}
+    Create Multiple User Stories                            Testing_Object11__c         ${checkbox8}     ${checkbox9}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object11__c         ${checkbox7}     ${checkbox6}           ${checkbox10}
+    Create Multiple User Stories                            Testing_Object11__c         ${checkbox8}     ${checkbox9}           ${checkbox11}
+    Create Multiple User Stories                            Testing_Object11__c         ${checkbox12}    ${checkbox13}          ${checkbox15}
