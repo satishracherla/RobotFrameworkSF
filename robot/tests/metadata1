@@ -1,0 +1,152 @@
+*** Settings ***
+Documentation                   Test suite for User story creation functionality
+Library                         QForce
+Library                         QWeb
+Library                         Collections
+Suite Setup                     Open Browser                about:blank                 chrome
+Suite Teardown                  Close All Browsers
+
+*** Variables ***
+${LoginUrl}                     https://test.salesforce.com
+${Username}                     shashank.j@cloudfulcrum.com.trnprod
+${Password}                     Asdfghjkl@90
+${NUM_USER_STORIES}             2                           # Number of user stories to create
+${Project}                      MetaSourceConverter-M
+${Credential}                   Dev
+${locator}                      xpath=//div[contains(@class, grid-cell-base)]//input[@tabindex='7']
+${ComponentName1}               testdata1
+@{CHECKBOX_LIST}
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 128')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 120')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 112')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 104')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 96')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 88')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 80')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 72')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 64')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 56')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 48')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 40')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 32')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 24')]
+...                             xpath=//div[@columnindex='0' and contains(@style, 'z-index: 16')]
+
+@{SearchKeyword_list}
+...                             Testing_Object5__c
+...                             Testing_Object8__c
+...                             Testing_Object9__c
+...                             Testing_Object6__c
+...                             Testing_Object4__c
+...                             Testing_Object10__c
+...                             Testing_Object11__c
+...                             Testing_Object7__c
+
+*** Keywords ***
+LoginToCopado
+    [Documentation]             Logs into Salesforce instance using provided credentials
+    [Arguments]                 ${LoginUrl}                 ${Username}                 ${Password}
+    GoTo                        ${LoginUrl}
+    TypeText                    Username                    ${Username}
+    TypeSecret                  Password                    ${Password}
+    ClickText                   Log In
+
+SelectFirstNCheckboxes
+    [Documentation]             Selects the first N checkboxes from a provided list
+    [Arguments]                 ${checkbox_list}            ${count}=10
+    FOR                         ${index}                    IN RANGE                    0                        ${count}
+        ${checkbox}=            Get From List               ${checkbox_list}            ${index}
+        ClickCheckbox           ${checkbox}                 on                          timeout=2
+    END
+Generate Unique User Story Name
+    [Documentation]             Generates a truly unique user story name using random number
+    ${random}=                  Evaluate                    random.randint(1000, 9999)                           random
+    ${userstory_unique_name}=                               Set Variable                MetaDataConversion_${random}
+    Set Suite Variable          ${userstory_unique_name}
+    Log                         Created unique user story name: ${userstory_unique_name}
+CreateNewUserStory
+    [Documentation]             Creates a new User story with basic information
+    [Arguments]                 ${index}                    ${userstory_unique_name}    ${project}               ${Credential}
+    ClickText                   User Stories
+    ClickText                   New
+    Sleep                       2
+    UseModal                    On
+    VerifyText                  User Story
+    Sleep                       2
+    ClickText                   User Story                  anchor=Investigation
+    Sleep                       2
+    ClickText                   Next
+    TypeText                    Title                       ${userstory_unique_name}_${index}
+    Sleep                       2
+    ComboBox                    Search Projects...          ${project}
+    Sleep                       2
+    ScrollText                  Information
+    ClickText                   Information
+    Sleep                       2
+    ComboBox                    Credential                  ${Credential}
+    Sleep                       2
+    ClickText                   Save                        partial_match=False
+    UseModal                    Off
+
+CommitChanges
+    [Arguments]                 ${ComponentName1}           ${checkbox_list}
+    ClickText                   Commit Changes
+    Sleep                       10
+    # Wait for the metadata component search field to appear
+    VerifyElement               ${locator}
+    ClickElement                ${locator}
+    Sleep                       5
+    TypeText                    ${locator}                  ${ComponentName1}           timeout=10
+    Sleep                       5
+    SelectFirstNCheckboxes      ${checkbox_list}            10
+    # Wait for search results to appear
+    #VerifyText                 Select All                  timeout=20
+    #ClickText                  Select All
+    # Sleep                     5
+    # VerifyElement             ${locator}
+    # ClickElement              ${locator}
+    # Sleep                     5
+    # TypeText                  ${locator}                  ${ComponentName2}           timeout=10
+    # Sleep                     5
+    # Select3Checkboxes         ${checkbox1}                ${checkbox2}                ${checkbox3}
+    # Wait for search results to appear
+    #VerifyText                 Select All                  timeout=20
+    #ClickText                  Select All
+    Sleep                       5
+    ClickText                   Commit Changes
+    Sleep                       10
+Create Multiple User Stories
+    [Arguments]                 ${Usindex}    ${SearchKeyword}            ${checkbox_list}
+    Generate Unique User Story Name
+    FOR                         ${index}                    IN RANGE                    1                        ${NUM_USER_STORIES}
+        ${formatted_index}=     Convert To String           ${index}
+        ${formatted_index}=     Evaluate                    "${formatted_index}".zfill(3)
+        CreateNewUserStory      ${formatted_index}          ${userstory_unique_name} ${Usindex}    ${Project}               ${Credential}
+        Sleep                   3
+        CommitChanges           ${SearchKeyword}            ${checkbox_list}
+    END
+
+*** Test Cases ***
+Create Multiple User Stories with Search Keywords
+    # Set the number of times to run the entire test case
+    ${run_count}=               Set Variable                2
+
+    # Outer loop to run the entire test case multiple times
+    FOR                         ${run_index}                IN RANGE                    1                        ${run_count}
+        Log                     Starting test run ${run_index} of ${run_count}
+
+        # Login to Copado
+        LoginToCopado           ${LoginUrl}                 ${Username}                 ${Password}
+
+        # Inner loop to iterate through search keywords
+        FOR                     ${SearchKeyword}            IN                          @{SearchKeyword_LIST}
+            Log                 Processing search keyword: ${SearchKeyword} (Run ${run_index})
+            Create Multiple User Stories                    ${run_index}                    ${SearchKeyword}            ${CHECKBOX_LIST}
+        END
+
+        # Optional: Log out or perform cleanup between runs
+        Log                     Completed test run ${run_index} of ${run_count}
+
+        # If you need to log out between runs, uncomment and implement the Logout keyword
+        # Logout
+    END
